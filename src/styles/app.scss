@@ -1,0 +1,33 @@
+@import './variables.scss';
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__logo {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+    }
+
+    &__search {
+        border: 1px solid $gray;
+        border-radius: 12px;
+        filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+        min-width: 300px;
+        padding: 18px 56px;
+        font-size: 2rem;
+        color: $gray;
+        margin-left: 40px;
+    }
+
+    &__add-btn {
+        background-color: $green;
+        padding: 16px 20px;
+        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        font-size: 1.6rem;
+        border: 0;
+        color: #fff;
+    }
+}
