@@ -42,12 +42,25 @@
 }
 
 .image-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-template-rows: minmax(100px auto);
-    // grid-auto-rows: 200px;
-    grid-auto-flow: dense;
-    img {
-        width: auto;
+    transition: all 0.5s ease-in-out;
+    column-gap: 10px;
+    column-fill: initial;
+
+    @media only screen and (min-width: $breakpointSm) and (max-width: $breakpointMd) {
+        column-count: 2;
     }
+
+    @media only screen and (min-width: $breakpointMd) {
+        column-count: 4;
+    }
+}
+
+.single-image {
+    margin-bottom: 10px;
+    display: inline-block; /* Fix the misalignment of items */
+    vertical-align: top; /* Keep the item on the very top */
+    // img {
+    //     transition: all 0.5s ease-in-out;
+    //     backface-visibility: hidden; /* Remove Image flickering on hover */
+    // }
 }
