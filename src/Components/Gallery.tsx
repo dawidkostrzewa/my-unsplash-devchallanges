@@ -1,17 +1,12 @@
+import { fetchUnsplashPhotos } from 'Core/Main.connector';
 import { useQuery } from 'react-query';
 import ImageList from './ImageList';
 
 export default function Gallery() {
-    const { isLoading, error, data } = useQuery('repoData', () =>
-        fetch('https://api.unsplash.com/photos?per_page=200', {
-            headers: new Headers({
-                Authorization: 'Client-ID s9wD7hODYsWP9q6RDighZ95f4nXmFhlmww4-pV5fC6k'
-            })
-        }).then((res) => res.json())
-    );
+    const { isLoading, error, data } = useQuery('unsplashPhotos', fetchUnsplashPhotos);
 
     if (isLoading) return <div>IS loading</div>;
-    if (error) return <div>Is error</div>;
+    if (error) return <div>COś poszło nie tak</div>;
     return (
         <div className="gallery">
             <ImageList images={data} />

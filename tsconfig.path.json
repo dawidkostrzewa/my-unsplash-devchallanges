@@ -4,7 +4,8 @@
         "paths": {
             "Components/*": ["Components/*"],
             "Img/*": ["img/*"],
-            "Styles/*": ["styles/*"]
+            "Styles/*": ["styles/*"],
+            "Core/*": ["Core/*"]
         }
     }
 }

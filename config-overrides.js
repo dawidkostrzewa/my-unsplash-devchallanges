@@ -12,7 +12,8 @@ module.exports = function override(config, env) {
         alias: {
             Components: srcPath('Components'),
             Img: srcPath('img'),
-            Styles: srcPath('styles')
+            Styles: srcPath('styles'),
+            Core: srcPath('Core')
         }
     };
 
