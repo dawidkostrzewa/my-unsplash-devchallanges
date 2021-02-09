@@ -7,3 +7,15 @@ export interface IImageResponse {
         regular: string;
     };
 }
+
+export interface ILocalImageResponse {
+    filename: string;
+    format: string;
+    tags: Array<string>;
+    url: string;
+}
+
+export interface IPaginableResponse<T> {
+    total_count: number;
+    resources: Array<T>;
+}
