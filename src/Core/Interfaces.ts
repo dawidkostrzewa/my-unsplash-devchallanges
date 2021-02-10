@@ -19,3 +19,7 @@ export interface IPaginableResponse<T> {
     total_count: number;
     resources: Array<T>;
 }
+
+export interface IPopupState {
+    isShown: boolean;
+}

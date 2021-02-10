@@ -5,7 +5,8 @@
             "Components/*": ["Components/*"],
             "Img/*": ["img/*"],
             "Styles/*": ["styles/*"],
-            "Core/*": ["Core/*"]
+            "Core/*": ["Core/*"],
+            "Features/*": ["features/*"]
         }
     }
 }

@@ -5,11 +5,22 @@ import 'Styles/app.scss';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+import popupReducer from './features/popupSlice';
+
+const store = configureStore({
+    reducer: {
+        popup: popupReducer
+    }
+});
 
 ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
+    <Provider store={store}>
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    </Provider>,
     document.getElementById('root')
 );
 

@@ -13,7 +13,8 @@ module.exports = function override(config, env) {
             Components: srcPath('Components'),
             Img: srcPath('img'),
             Styles: srcPath('styles'),
-            Core: srcPath('Core')
+            Core: srcPath('Core'),
+            Features: srcPath('features')
         }
     };
 
