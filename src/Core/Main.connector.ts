@@ -1,4 +1,4 @@
-import { getHTTP } from './API';
+import { getHTTP, postHTTP } from './API';
 import { IImageResponse, ILocalImageResponse, IPaginableResponse } from './Interfaces';
 
 export const fetchUnsplashPhotos = () => {
@@ -7,4 +7,9 @@ export const fetchUnsplashPhotos = () => {
 
 export const fetchAllCloudinaryPhotos = () => {
     return getHTTP<IPaginableResponse<ILocalImageResponse>>('/photos');
+};
+
+//TODO: typ
+export const uploadPhoto = (data: FormData) => {
+    return postHTTP('/photos', data);
 };
