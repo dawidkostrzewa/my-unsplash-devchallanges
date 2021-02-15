@@ -8,10 +8,11 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import popupReducer from './features/popupSlice';
+import { SLICES } from 'Features/slices';
 
 const store = configureStore({
     reducer: {
-        popup: popupReducer
+        [SLICES.POPUP]: popupReducer
     }
 });
 

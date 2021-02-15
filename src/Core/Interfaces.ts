@@ -22,4 +22,9 @@ export interface IPaginableResponse<T> {
 
 export interface IPopupState {
     isShown: boolean;
+    popupContent: JSX.Element;
+}
+
+export interface IPopupSliceState {
+    popup: IPopupState;
 }

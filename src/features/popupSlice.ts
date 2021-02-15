@@ -1,20 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { IPopupState } from 'Core/Interfaces';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IPopupSliceState } from 'Core/Interfaces';
+import { SLICES } from './slices';
 
 const popupSlice = createSlice({
-    name: 'popup',
+    name: SLICES.POPUP,
     initialState: {
-        isShown: false
+        isShown: false,
+        popupContent: null
     },
     reducers: {
-        togglePopup: (state) => {
-            state.isShown = !state.isShown;
+        hidePopup: (state) => {
+            state.isShown = false;
+            state.popupContent = null;
+        },
+        showPopup: (state, action: PayloadAction<JSX.Element>) => {
+            state.popupContent = action.payload;
+            state.isShown = true;
         }
     }
 });
 
-export const { togglePopup } = popupSlice.actions;
+export const { hidePopup, showPopup } = popupSlice.actions;
 
-export const isPopupShown = (state: { popup: IPopupState }) => state.popup.isShown;
+export const isPopupShown = (state: IPopupSliceState) => state[SLICES.POPUP].isShown;
+export const popupContent = (state: IPopupSliceState) => state[SLICES.POPUP].popupContent;
 
 export default popupSlice.reducer;
