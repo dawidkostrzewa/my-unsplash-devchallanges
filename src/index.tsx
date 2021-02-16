@@ -7,7 +7,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import popupReducer from './features/popupSlice';
+import popupReducer from 'Features/popupSlice';
 import { SLICES } from 'Features/slices';
 
 const store = configureStore({

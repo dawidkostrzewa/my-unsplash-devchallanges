@@ -1,4 +1,4 @@
-import { fetchAllCloudinaryPhotos, fetchUnsplashPhotos } from 'Core/Main.connector';
+import { fetchAllCloudinaryPhotos } from 'Core/Main.connector';
 import { useQuery } from 'react-query';
 import ImageList from './ImageList';
 

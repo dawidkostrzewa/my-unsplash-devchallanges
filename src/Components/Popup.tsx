@@ -1,4 +1,4 @@
-import { isPopupShown, popupContent, hidePopup } from '../features/popupSlice';
+import { isPopupShown, popupContent, hidePopup } from 'Features/popupSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function Popup(): JSX.Element {
