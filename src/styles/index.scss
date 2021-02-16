@@ -26,4 +26,6 @@ body {
     color: $gray;
 }
 
+@import './common.scss';
 @import './popup.scss';
+@import './spinner.scss';

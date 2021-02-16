@@ -1,6 +1,6 @@
 import { uploadPhoto } from './Main.connector';
 
-export const uploadPhotoFile = async (files: Array<File>) => {
+export const uploadPhotoFile = async (files: Array<File>): Promise<boolean> => {
     //TODO: obsluga bledow
     //TODO: przeniesc do seriwsu
     const errs = [];
@@ -19,8 +19,10 @@ export const uploadPhotoFile = async (files: Array<File>) => {
 
     try {
         await uploadPhoto(formData);
+        return true;
     } catch (e) {
         //TODO: obsluga bledow
         console.log(e);
+        return false;
     }
 };

@@ -15,7 +15,7 @@
         margin: auto;
         padding: 20px;
         border: 1px solid #888;
-        width: 80%;
+        max-width: 700px;
         position: relative;
     }
 
@@ -27,5 +27,46 @@
         font-size: 2rem;
         background: transparent;
         border: none;
+    }
+}
+
+.uploadPhotoPopup {
+    display: flex;
+    flex-direction: column;
+    &__header {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+
+    &__inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+    &__inputfile + label {
+        font-size: 1.25em;
+        font-weight: 700;
+        color: white;
+        background-color: red;
+        display: inline-block;
+        text-align: center;
+        max-width: 400px;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    &__inputfile:focus + label,
+    &__inputfile + label:hover {
+        cursor: pointer;
+    }
+
+    &__upload {
+        display: flex;
+        justify-content: center;
     }
 }

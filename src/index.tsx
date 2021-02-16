@@ -8,11 +8,13 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import popupReducer from 'Features/popupSlice';
+import spinnerReducer from 'Features/spinnerSlice';
 import { SLICES } from 'Features/slices';
 
 const store = configureStore({
     reducer: {
-        [SLICES.POPUP]: popupReducer
+        [SLICES.POPUP]: popupReducer,
+        [SLICES.SPINNER]: spinnerReducer
     }
 });
 

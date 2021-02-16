@@ -1,0 +1,25 @@
+.button {
+    background-color: $green;
+    padding: 16px 20px;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-size: 1.6rem;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+
+    &--small {
+        max-width: 120px;
+        padding: 10px 25px;
+    }
+}
+
+.mt {
+    &-10 {
+        margin-top: 10px;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
