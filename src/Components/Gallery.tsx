@@ -1,18 +1,24 @@
-import { fetchAllCloudinaryPhotos } from 'Core/Main.connector';
-import { useQuery } from 'react-query';
+import { fetchPhotos, galleryPhotos, isGalleryLoading } from 'Features/gallerySlice';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ImageList from './ImageList';
 import { Spinner } from './Spinner';
 
 export default function Gallery() {
-    const { isLoading, error, data } = useQuery('cloudinaryPhotos', fetchAllCloudinaryPhotos);
+    const dispatch = useDispatch();
+    const galleryPhotosSelector = useSelector(galleryPhotos);
+    const isGalleryLoadingSelector = useSelector(isGalleryLoading);
 
-    if (isLoading) {
+    useEffect(() => {
+        dispatch(fetchPhotos());
+    }, [dispatch]);
+
+    if (isGalleryLoadingSelector) {
         return <Spinner />;
     }
-    if (error) return <div>Something went wrong</div>;
     return (
         <div className="gallery">
-            <ImageList images={data?.resources || []} />
+            <ImageList images={galleryPhotosSelector || []} />
         </div>
     );
 }

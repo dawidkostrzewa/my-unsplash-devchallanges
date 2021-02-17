@@ -1,4 +1,5 @@
 export enum SLICES {
     POPUP = 'popup',
-    SPINNER = 'spinner'
+    SPINNER = 'spinner',
+    GALLERY = 'gallery'
 }

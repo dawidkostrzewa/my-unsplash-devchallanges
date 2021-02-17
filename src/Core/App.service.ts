@@ -1,6 +1,6 @@
 import { uploadPhoto } from './Main.connector';
 
-export const uploadPhotoFile = async (files: Array<File>): Promise<boolean> => {
+export const uploadPhotoFile = async (files: Array<File>, tags?: string): Promise<boolean> => {
     //TODO: obsluga bledow
     //TODO: przeniesc do seriwsu
     const errs = [];
@@ -16,6 +16,10 @@ export const uploadPhotoFile = async (files: Array<File>): Promise<boolean> => {
         errs.push(`'${file.name}' is too large, please pick a smaller file`);
     }
     formData.append('file', file);
+
+    if (tags) {
+        formData.append('tags', tags);
+    }
 
     try {
         await uploadPhoto(formData);

@@ -9,12 +9,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import popupReducer from 'Features/popupSlice';
 import spinnerReducer from 'Features/spinnerSlice';
+import galleryReducer from 'Features/gallerySlice';
 import { SLICES } from 'Features/slices';
 
 const store = configureStore({
     reducer: {
         [SLICES.POPUP]: popupReducer,
-        [SLICES.SPINNER]: spinnerReducer
+        [SLICES.SPINNER]: spinnerReducer,
+        [SLICES.GALLERY]: galleryReducer
     }
 });
 
