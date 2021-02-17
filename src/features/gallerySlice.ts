@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { IGallerySliceState } from 'Core/Interfaces';
 import { fetchAllCloudinaryPhotos } from 'Core/Main.connector';
 import { SLICES } from './slices';
 
@@ -25,7 +26,7 @@ const gallerySlice = createSlice({
     }
 });
 
-export const galleryPhotos = (state: any) => state[SLICES.GALLERY].photos;
-export const isGalleryLoading = (state: any) => state[SLICES.GALLERY].isLoading;
+export const galleryPhotos = (state: IGallerySliceState) => state[SLICES.GALLERY].photos;
+export const isGalleryLoading = (state: IGallerySliceState) => state[SLICES.GALLERY].isLoading;
 
 export default gallerySlice.reducer;

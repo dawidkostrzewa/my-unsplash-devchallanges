@@ -28,3 +28,10 @@ export interface IPopupState {
 export interface IPopupSliceState {
     popup: IPopupState;
 }
+
+export interface IGallerySliceState {
+    gallery: {
+        photos: Array<ILocalImageResponse>;
+        isLoading: boolean;
+    };
+}
