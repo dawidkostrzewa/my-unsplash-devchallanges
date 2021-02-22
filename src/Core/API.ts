@@ -1,5 +1,5 @@
 // export const IMG_API = `https://api.unsplash.com`;
-export const IMG_API = `http://localhost:8000`;
+export const IMG_API = process.env.REACT_APP_API_URL;
 
 export const getHTTP = async <T>(url: string): Promise<T> => {
     const response = await fetch(`${IMG_API}${url}`, {});
