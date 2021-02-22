@@ -22,6 +22,9 @@ const gallerySlice = createSlice({
         [fetchPhotos.fulfilled.toString()]: (state, action) => {
             state.photos = action.payload;
             state.isLoading = false;
+        },
+        [fetchPhotos.rejected.toString()]: (state) => {
+            state.isLoading = false;
         }
     }
 });
