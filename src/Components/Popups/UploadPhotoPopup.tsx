@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 export function UploadPhotoPopup(): JSX.Element {
     const [files, setFiles] = useState<Array<File>>([]);
     const [isUploaded, setIsUploaded] = useState<boolean>();
+    const [errors, setErrors] = useState<string[]>([]);
     const [tags, setTags] = useState<string>(null);
     const dispatch = useDispatch();
 
@@ -21,10 +22,12 @@ export function UploadPhotoPopup(): JSX.Element {
     async function send() {
         dispatch(showSpinner());
         const result = await uploadPhotoFile(files, tags);
-        setTags(null);
-        setIsUploaded(result);
-        if (result) {
+        if (typeof result == 'boolean') {
+            setIsUploaded(result);
             dispatch(fetchPhotos());
+            setErrors([]);
+        } else {
+            setErrors(result);
         }
         dispatch(hideSpinner());
     }
@@ -38,6 +41,9 @@ export function UploadPhotoPopup(): JSX.Element {
                 placeholder="Tags (ex. cat, animal )"
                 onChange={(e) => setTags(e.target.value)}
             />
+            {errors.map((err) => (
+                <div>{err}</div>
+            ))}
             {files.length > 0 && !isUploaded && (
                 <img className="uploadPhotoPopup__photo-preview" src={URL.createObjectURL(files[0])} alt="" />
             )}
@@ -48,7 +54,10 @@ export function UploadPhotoPopup(): JSX.Element {
                         name="file"
                         id="file"
                         className="uploadPhotoPopup__inputfile"
-                        onChange={(e) => setFiles(e.target.files as any)}
+                        onChange={(e) => {
+                            setErrors([]);
+                            setFiles(e.target.files as any);
+                        }}
                     />
                     <label htmlFor="file">{chooseFileLabel()}</label>
                 </div>

@@ -12,7 +12,6 @@ export const getHTTP = async <T>(url: string): Promise<T> => {
     return res;
 };
 
-//TODO: typ
 export const postHTTP = async <T>(url: string, data: any): Promise<T> => {
     const response = await fetch(`${IMG_API}${url}`, {
         method: 'POST',

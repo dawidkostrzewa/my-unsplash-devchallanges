@@ -9,7 +9,6 @@ export const fetchAllCloudinaryPhotos = () => {
     return getHTTP<IPaginableResponse<ILocalImageResponse>>('/photos');
 };
 
-//TODO: typ
 export const uploadPhoto = (data: FormData) => {
     return postHTTP('/photos', data);
 };
