@@ -1,24 +1,22 @@
-import { fetchPhotos, galleryPhotos, isGalleryLoading } from 'Features/gallerySlice';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { ILocalImageResponse } from 'Core/Interfaces';
+import { isGalleryLoading } from 'Features/gallerySlice';
+import { useSelector } from 'react-redux';
 import ImageList from './ImageList';
 import { Spinner } from './Spinner';
 
-export default function Gallery() {
-    const dispatch = useDispatch();
-    const galleryPhotosSelector = useSelector(galleryPhotos);
-    const isGalleryLoadingSelector = useSelector(isGalleryLoading);
+interface IProps {
+    images: ILocalImageResponse[];
+}
 
-    useEffect(() => {
-        dispatch(fetchPhotos());
-    }, [dispatch]);
+export default function Gallery({ images }: IProps) {
+    const isGalleryLoadingSelector = useSelector(isGalleryLoading);
 
     if (isGalleryLoadingSelector) {
         return <Spinner />;
     }
     return (
         <div className="gallery">
-            <ImageList images={galleryPhotosSelector || []} />
+            <ImageList images={images || []} />
         </div>
     );
 }

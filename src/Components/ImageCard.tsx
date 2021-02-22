@@ -9,6 +9,7 @@ export default function ImageCard({ image }: IProps) {
         <div className="single-image">
             <img src={image.url} alt={image.tags[0]} />
             <div className="single-image__description">
+                {image.tags.length === 0 && <span>NO TAGS</span>}
                 {image.tags.map((tag) => (
                     <span className="single-image__description-label">{tag}</span>
                 ))}

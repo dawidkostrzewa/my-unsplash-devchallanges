@@ -1,4 +1,4 @@
-import { IImageResponse, ILocalImageResponse } from 'Core/Interfaces';
+import { ILocalImageResponse } from 'Core/Interfaces';
 import ImageCard from './ImageCard';
 
 interface IProps {
